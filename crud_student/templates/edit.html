@@ -1,0 +1,46 @@
+
+{% extends 'main.html' %}
+{% block title %}Labošanas lapa{% endblock title%}
+{% block content%}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3  shadow p-3 bg-light rounded">
+                <form method="POST" action="/update/{{student.id}}">
+                    {% csrf_token %}
+                        <div>
+                            <h4>Labošanas logs</h4>
+                        </div>
+                        <div>
+                            <p>Studenta ID:</p>
+                            <div>
+                                <input type="text" name="id" value="{{student.id}}" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly>
+                               
+                            </div>
+        
+                        </div>
+                        <div>
+                            <p>Studenta vārds:</p>
+                            <div>
+                                <input type="text" name="name" value="{{student.name}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            
+                            </div>
+        
+                        </div>
+                        <div>
+                            <p>Studenta Uzvārds:</p>
+                            <div>
+                                <input type="text" name="surname" value="{{student.surname}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                              
+                            </div>
+        
+                        </div>
+                        <div>
+                            <br>
+                            <button class="btn btn-primary btn-xs w-100 " type="submit">Izlabot</button>
+                           
+                        </div> 
+                    <div>
+            </div>
+        </div>  
+    </div>      
+{% endblock content %}

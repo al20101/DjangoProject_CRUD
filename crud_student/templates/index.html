@@ -1,0 +1,25 @@
+{% extends 'main.html'%}
+{% block title %}Pievienošanas lapa{% endblock title%}
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-2 shadow p-3  bg-light rounded ">
+                <form method="POST" action="/student_add">
+                    {% csrf_token %}
+               <br>
+                   <h4>Ievadiet datus:</h4>
+               <div class="mb-3">
+                   <p>Studenta Vārds:</p>{{form.name}}
+               </div>
+               <div>
+                   <p>Studenta Uzvārds:</p>{{form.surname}}
+               </div>
+               <div class="mb-3"> 
+                   <br>
+                 <button class="btn btn-primary btn-xs " type="submit">Pievienot </button>
+               </form>
+            </div>
+        </div>
+    </div>
+ 
+{% endblock content %}

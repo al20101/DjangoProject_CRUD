@@ -1,0 +1,52 @@
+{% extends 'main.html'%} {% block title %}Studentu tabula{% endblock title%}
+{%block content %}
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-8">
+      <table
+        class="table table-bordered table-hover table-striped shadow-lg p-3 bg-light rounded"
+      >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Vārds</th>
+            <th scope="col">Uzvārds</th>
+            <th scope="col">Darbība</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for students in studentslist %}
+          <tr>
+            <td>{{students.id}}</td>
+            <td>{{students.name}}</td>
+            <td>{{students.surname}}</td>
+            <td>
+              <a
+                href="/edit/{{students.id}}"
+                class="btn btn-primary w-50"
+                tabindex="-1"
+                role="button"
+                aria-disabled="true"
+                >Labot</a
+              >
+              <a
+                href="/delete/{{students.id}}"
+                class="btn btn-primary btn-danger"
+                tabindex="-1"
+                role="button"
+                aria-disabled="true"
+                >Dzēst</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="/student_add" role="button"
+        >Pievienot jaunu studentu</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}
